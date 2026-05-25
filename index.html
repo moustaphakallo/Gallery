@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta
+  http-equiv="Content-Security-Policy"
+  content="
+  default-src 'self';
+  font-src 'self' *.vercel.com *.gstatic.com vercel.live https://*.public.blob.vercel-storage.com;
+">
+  <title>CONSTRUC PRO | BTP & Logistique</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link
+    href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+    rel="stylesheet"
+  />
+  <style>
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* NAVBAR */
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.navbar {
+  width: 90%;
+  margin: auto;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #f97316;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #f97316;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1600&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  margin-top: 80px;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 90%;
+  max-width: 800px;
+}
+
+.hero-content h1 {
+  font-size: 60px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.hero-content p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 15px 40px;
+  background: #f97316;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: 0.3s;
+  cursor: pointer;
+  border: none;
+  font-size: 16px;
+}
+
+.btn:hover {
+  transform: translateY(-5px);
+  background: #ea580c;
+}
+
+/* STATS */
+.stats {
+  width: 90%;
+  margin: auto;
+  padding: 100px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.stat-box {
+  background: #1e293b;
+  padding: 40px 20px;
+  text-align: center;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.stat-box:hover {
+  transform: translateY(-10px);
+}
+
+.stat-box h2 {
+  font-size: 45px;
+  color: #f97316;
+  margin-bottom: 10px;
+}
+
+/* ABOUT */
+.about {
+  width: 90%;
+  margin: auto;
+  padding: 100px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.about img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.about-text h2 {
+  font-size: 45px;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+/* SERVICES */
+.services {
+  padding: 100px 5%;
+}
+
+.services h2 {
+  text-align: center;
+  font-size: 45px;
+  margin-bottom: 50px;
+}
+
+.service-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.service-card {
+  background: #1e293b;
+  padding: 40px;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  background: #334155;
+}
+
+.service-card h3 {
+  margin-bottom: 20px;
+  color: #f97316;
+  font-size: 22px;
+}
+
+/* GALLERY */
+.gallery {
+  padding: 100px 5%;
+  background: #020617;
+}
+
+.gallery h2 {
+  text-align: center;
+  font-size: 45px;
+  margin-bottom: 50px;
+}
+
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.gallery-container img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.gallery-container img:hover {
+  transform: scale(1.05);
+}
+
+/* CONTACT */
+.contact {
+  padding: 100px 5%;
+}
+
+.contact h2 {
+  text-align: center;
+  font-size: 45px;
+  margin-bottom: 50px;
+}
+
+.contact-form {
+  max-width: 700px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  background-color: #020617;
+  color: white;
+  font-size: 16px;
+  border: 1px solid #334155;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #f97316;
+}
+
+.contact-form textarea {
+  height: 200px;
+  resize: vertical;
+}
+
+.contact-form button {
+  padding: 15px;
+  border: none;
+  background: #f97316;
+  color: white;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background: #ea580c;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 30px;
+  background: #020617;
+  border-top: 1px solid #334155;
+}
+
+/* ============ RESPONSIVE ============ */
+
+/* Tablettes */
+@media (max-width: 991px) {
+  .hero-content h1 {
+    font-size: 45px;
+  }
+
+  .hero-content p {
+    font-size: 18px;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .service-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-box {
+    padding: 30px;
+  }
+
+  .stat-box h2 {
+    font-size: 35px;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 0;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    background: #0f172a;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 0;
+    transition: 0.3s;
+  }
+
+  .nav-links.active {
+    left: 0;
+  }
+
+  .nav-links a {
+    padding: 15px 0;
+    display: block;
+  }
+
+  .hero {
+    margin-top: 70px;
+    min-height: 100vh;
+  }
+
+  .hero-content h1 {
+    font-size: 32px;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+    padding: 50px 0;
+  }
+
+  .stat-box {
+    padding: 25px;
+  }
+
+  .stat-box h2 {
+    font-size: 30px;
+  }
+
+  .services {
+    padding: 50px 5%;
+  }
+
+  .services h2 {
+    font-size: 32px;
+  }
+
+  .service-container {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery {
+    padding: 50px 5%;
+  }
+
+  .gallery h2 {
+    font-size: 32px;
+  }
+
+  .gallery-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .gallery-container img {
+    height: 200px;
+  }
+
+  .contact {
+    padding: 50px 5%;
+  }
+
+  .contact h2 {
+    font-size: 32px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 12px;
+  }
+}
+
+/* Très petits écrans */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 12px 0;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 24px;
+  }
+
+  .hero-content p {
+    font-size: 13px;
+  }
+
+  .btn {
+    padding: 12px 25px;
+    font-size: 14px;
+  }
+
+  .services h2,
+  .gallery h2,
+  .contact h2,
+  .about-text h2 {
+    font-size: 26px;
+  }
+
+  .about {
+    gap: 20px;
+  }
+
+  .stat-box h2 {
+    font-size: 25px;
+  }
+
+  .contact-form {
+    gap: 15px;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+
+  <header class="header">
+
+    <nav class="navbar">
+
+      <div class="logo">
+        CONSTRUC PRO
+      </div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#">À propos</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Galerie</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+
+      <div class="menu-toggle" id="menuToggle">
+        ☰
+      </div>
+
+    </nav>
+
+  </header>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="overlay"></div>
+
+    <div class="hero-content" data-aos="fade-up">
+
+      <h1>
+        Votre partenaire de confiance en BTP & Logistique
+      </h1>
+
+      <p>
+        Construction moderne, transport sécurisé et solutions
+        logistiques professionnelles partout en Afrique.
+      </p>
+
+      <a href="#" class="btn">
+        Demander un devis
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- STATS -->
+
+  <section class="stats">
+
+    <div class="stat-box" data-aos="zoom-in">
+      <h2>15+</h2>
+      <p style="color: white;">Années d'expérience</p>
+    </div>
+
+    <div class="stat-box" data-aos="zoom-in">
+      <h2>300+</h2>
+      <p style="color: white;">Projets réalisés</p>
+    </div>
+
+    <div class="stat-box" data-aos="zoom-in">
+      <h2>50+</h2>
+      <p style="color: white;">Camions disponibles</p>
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section class="about">
+
+    <div class="about-image" data-aos="fade-right">
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop" alt="">
+    </div>
+
+    <div class="about-text" data-aos="fade-left">
+
+      <h2>À propos de nous</h2>
+
+      <p>
+        CONSTRUC PRO est une entreprise spécialisée dans
+        les travaux publics, la construction moderne et
+        le transport logistique de grande capacité.
+      </p>
+
+      <p>
+        Nous accompagnons les entreprises et les particuliers
+        avec des solutions fiables, rapides et sécurisées.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- SERVICES -->
+
+  <section class="services">
+
+    <h2 data-aos="fade-up">
+      Nos Services
+    </h2>
+
+    <div class="service-container">
+
+      <div class="service-card" data-aos="fade-up">
+        <h3>Construction Générale</h3>
+        <p style="color: white;">
+          Villas, immeubles, entrepôts et infrastructures modernes.
+        </p>
+      </div>
+
+      <div class="service-card" data-aos="fade-up">
+        <h3>Transport Logistique</h3>
+        <p style="color: white;">
+          Transport sécurisé de marchandises et matériaux.
+        </p>
+      </div>
+
+      <div class="service-card" data-aos="fade-up">
+        <h3>Location d'Équipements</h3>
+        <p style="color: white;">
+          Bulldozers, grues, excavateurs et matériels lourds.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- GALLERY -->
+
+  <section class="gallery">
+
+    <h2 data-aos="fade-up">
+      Galerie Projets
+    </h2>
+
+    <div class="gallery-container">
+
+      <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1200&auto=format&fit=crop" alt="" data-aos="zoom-in">
+
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop" alt="" data-aos="zoom-in">
+
+      <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200&auto=format&fit=crop" alt="" data-aos="zoom-in">
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section class="contact">
+
+    <h2 data-aos="fade-up">
+      Contactez-nous
+    </h2>
+
+    <form class="contact-form" data-aos="fade-up">
+
+      <input type="text" placeholder="moustapha  Amadou Kallo">
+
+      <input type="email" placeholder="moustaphakallo547@gmail.com">
+
+      <textarea placeholder="bonjour"></textarea>
+
+      <button type="submit">
+        Envoyer
+      </button>
+
+    </form>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer class="footer">
+
+    <p>
+      © 2026 CONSTRUC PRO - Tous droits réservés
+    </p>
+
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+    AOS.init();
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.onclick = () => {
+      navLinks.classList.toggle("active");
+    };
+  </script>
+
+</body>
+</html>
